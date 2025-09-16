@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: securebank-api
+  datasource:
+    url: jdbc:mysql://localhost:3306/securebank
+    username: securebank
+    password: change-me
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+
+securebank:
+  jwt:
+    secret: U2VjdXJlQmFuazIwMjRERVZFbW9TZWNyZXRLZXlIRzI1Ng==
+    access-token-ttl-seconds: 3600
+    refresh-token-ttl-seconds: 2592000
+
+logging:
+  level:
+    org.springframework.security: INFO
